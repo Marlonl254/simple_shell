@@ -19,7 +19,7 @@ unsigned int get_min(unsigned int n1, unsigned int n2)
 
 /**
  * _realloc - Implementation of realloc using malloc and free
- * @ptr: The address of previously allocated memory
+ * @ptr: address of previously allocated memory
  * @old_size: Amount of memory previously allocated to ptr
  * @new_size: Amount of memory to reallocate to ptr
  *
@@ -79,7 +79,7 @@ void free_arr(char **arr)
 
 /**
  * free_strs - Frees memory allocated for a variable number of strings
- * @n: The number of memory areas to free
+ * @n: number of memory areas to free
  *
  * Return: void
  */
@@ -99,10 +99,10 @@ void free_strs(int n, ...)
 }
 
 /**
- * free_if_malloced - Frees the command path used to execute a command if it
+ * free_if_malloced - Free the command path used to execute a command if it
  * has been malloced
- * @c_path: The command path
- * @arg: The actual command retrieved from stdin
+ * @c_path: command path
+ * @arg: actual command retrieved from stdin
  *
  * Return: void
  */
