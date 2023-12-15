@@ -2,11 +2,11 @@
 #include <string.h>
 
 /**
- * check_fd - Checks if the file descriptor given by open is valid,
+ * check_fd - Checks if the file descriptor given to open is valid,
  * exits if not
- * @fd: The file descriptor to check
+ * @fd: check file descriptor
  * @ev: Environment vector (to free if fd is invalid)
- * @filename: The name of file that open attempted
+ * @filename: The name of file that attempted to be opened
  *
  * Return: void
  */
@@ -24,8 +24,8 @@ void check_fd(int fd, char **ev, char *filename)
 }
 
 /**
- * read_file_content - reads files content in to a buffer
- * @filename: name of file
+ * read_file_content - reads files into a buffer
+ * @filename: file name
  * @bytes_read: pointer to a variable to store total bytes
  * read
  * @ev: Environment variables vector
