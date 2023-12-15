@@ -3,21 +3,21 @@
 /**
  * is_interactive - Checks if the shell is in interactive mode or not
  *
- * Return: 1 if it is interactive, 0 otherwise
+ * Return: interactive (1), 0 otherwise
  */
 int is_interactive(void)
 {
 	char *shlvl = "";
-	int i = 0;
+	int m = 0;
 
-	while (environ && environ[i])
+	while (environ && environ[m])
 	{
-		char **str_arr = _strtok(environ[i], "=");
+		char **str_arr = _strtok(environ[m], "=");
 
 		if (!_strcmp(str_arr[0], "SHLVL"))
-			shlvl = &environ[i][6];
+			shlvl = &environ[m][6];
 		free_arr(str_arr);
-		i++;
+		m++;
 	}
 	if (!_strcmp(shlvl, "1"))
 		return (1);
