@@ -1,11 +1,11 @@
 #include "main.h"
 
 /**
- * _strcpy - Copies the string in the second argument to the first argument
- * @dest: The string being copied into
- * @src: The string being copied
+ * _strcpy - Copies string in second argument to the first argument
+ * @dest: string to be copied into
+ * @src: string being copied
  *
- * Return: The pointer to the resulting string
+ * Return: pointer to the resulting string
  */
 char *_strcpy(char *dest, char *src)
 {
@@ -39,8 +39,8 @@ unsigned int pow_ten(unsigned int n)
 	return (res);
 }
 /**
- * num_to_str - converts unsigned int to string
- * @num: number to be converted
+ * num_to_str - convert unsigned int to string
+ * @num: converted number
  *
  * Return: string output
  */
