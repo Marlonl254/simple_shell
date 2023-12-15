@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _strlen - Returns the number of characters (except '\0') in a given string
+ * _strlen - Return number of characters (except '\0') in a given string
  * @s: The string whose length is returned
  *
  * Return: The length of s
@@ -62,10 +62,10 @@ int _strcmp(char *s1, char *s2)
 
 /**
  * _strtok - Splits a given string with a given delimiter
- * @str: The string to be split
+ * @str: string to be split
  * @delim: The delimiter used to split the string
  *
- * Return: An array consisting of parts of str that are separated by the delim
+ * Return: array consisting of parts of str that are separated by the delim
  */
 char **_strtok(char *str, char *delim)
 {
@@ -112,8 +112,8 @@ char **_strtok(char *str, char *delim)
 }
 
 /**
- * _strcat - Concatenates two strings and returns a pointer to the result
- * @num: The number of strings to concatenate
+ * _strcat - Concatenates two strings and returns  pointer to the result
+ * @num: amount of strings to concatenate
  *
  *
  * Return: A pointer to the dest string
