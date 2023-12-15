@@ -2,8 +2,8 @@
 
 /**
  * replace_variables - Replace variables given as arguments/commands
- * @args: The arguments given
- * @status: Exit status of the last executed command
+ * @args: arguments
+ * @status: Exit status of last executed command
  *
  * Return: void
  */
