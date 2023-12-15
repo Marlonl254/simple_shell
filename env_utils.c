@@ -1,19 +1,19 @@
 #include "main.h"
 
 /**
- * get_paths - returns list of env paths
+ * get_paths - list of env paths returned
  *
- * Return: list of paths
+ * Return: paths lists
  */
 char **get_paths(void)
 {
-	int i;
+	int m;
 	char *path;
 	char **paths;
 
-	for (i = 0; environ && environ[i]; i++)
+	for (m = 0; environ && environ[m]; m++)
 	{
-		char **key = _strtok(environ[i], "=");
+		char **key = _strtok(environ[m], "=");
 
 		if (_strcmp(key[0], "PATH") == 0)
 		{
@@ -35,8 +35,8 @@ char **get_paths(void)
 }
 
 /**
- * command_path - finds full path of a command
- * @dirs: directories to shearch in
+ * command_path - full path of command is founded
+ * @dirs: directories to search into
  * @command: command name
  *
  * Return: full path of command if found,
@@ -44,19 +44,19 @@ char **get_paths(void)
  */
 char *command_path(char **dirs, char *command)
 {
-	int i;
+	int m;
 	char *path = NULL;
 
-	for (i = 0; dirs && dirs[i]; i++)
+	for (m = 0; dirs && dirs[m]; m++)
 	{
-		DIR *dir = opendir(dirs[i]);
+		DIR *dir = opendir(dirs[m]);
 		struct dirent *file;
 
 		while ((file = readdir(dir)) != NULL)
 		{
 			if (_strcmp(command, file->d_name) == 0)
 			{
-				path = dirs[i];
+				path = dirs[m];
 				break;
 			}
 		}
@@ -71,7 +71,7 @@ char *command_path(char **dirs, char *command)
 }
 
 /**
- * get_env_var - Retrieve a variable - value pair from environ
+ * get_env_var - Retrieves variable - value pair from environ
  * @var_name: Variable name of the pair to retrieve
  *
  * Return: A pair with the given var_name if it exists, NULL if it doesn't
@@ -79,53 +79,53 @@ char *command_path(char **dirs, char *command)
 char *get_env_var(char *var_name)
 {
 	char *env_var = NULL;
-	int i = 0;
+	int m = 0;
 
-	while (environ && environ[i])
+	while (environ && environ[m])
 	{
-		char **str_arr = _strtok(environ[i], "=");
+		char **str_arr = _strtok(environ[m], "=");
 
 		if (!_strcmp(str_arr[0], var_name))
-			env_var = environ[i];
-		i++;
+			env_var = environ[m];
+		m++;
 		free_arr(str_arr);
 	}
 	return (env_var);
 }
 
 /**
- * set_env_var - Sets the value of a given var from environ
- * @var: The name of the variable
- * @val: The value to set to the variable
+ * set_env_var - value of a given var from environ is set
+ * @var: variable name
+ * @val: variable set
  *
- * Return: 0 if successful, 1 otherwise
+ * Return: successful (0), 1 otherwise
  */
 int set_env_var(char *var, char *val)
 {
-	int i = 0;
+	int m = 0;
 	char *ptr;
 
-	while (environ[i])
+	while (environ[m])
 	{
-		char **str_arr = _strtok(environ[i], "=");
+		char **str_arr = _strtok(environ[m], "=");
 
 		if (!_strcmp(var, str_arr[0]))
 		{
 			free_arr(str_arr);
 			break;
 		}
-		i++;
+		m++;
 		free_arr(str_arr);
 	}
-	if (environ[i] == NULL)
+	if (environ[m] == NULL)
 	{
 		extend_environ();
-		environ[i + 1] = NULL;
+		environ[m + 1] = NULL;
 	}
-	ptr = environ[i];
+	ptr = environ[m];
 	free(ptr);
-	environ[i] = _strcat(3, var, "=", val);
-	if (environ[i] == NULL)
+	environ[m] = _strcat(3, var, "=", val);
+	if (environ[m] == NULL)
 		return (-1);
 	return (0);
 }
