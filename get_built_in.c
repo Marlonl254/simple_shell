@@ -4,7 +4,7 @@
  * is_builtin - checks if a command is a builtin
  * @cmd: command to be checked
  *
- * Return: 1 if cmd is builtin, 0 otherwise
+ * Return: cmd is builtin (1), 0 otherwise
  */
 int is_builtin(char *cmd)
 {
@@ -21,11 +21,11 @@ int is_builtin(char *cmd)
 }
 
 /**
- * execute_builtin - finds built-in handdle and excutes it
- * @args: Arguments given along with the command
- * @av: 1d array of the command line arguments given when the program is
+ * execute_builtin - finds built-in handle and excutes 
+ * @args: Arguments
+ * @av: array of the command line arguments given when the program is
  * executed
- * @cmd_no: The current command number
+ * @cmd_no: current command number
  *
  * Return: 0 on success
  */
