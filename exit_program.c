@@ -1,10 +1,10 @@
 #include "main.h"
 
 /**
- * exit_program - Exits the running shell
- * @buff_arr: An array of the command and arguments
+ * exit_program - Exits running shell
+ * @buff_arr: array of command and arguments
  * @buff_size: Number of characters in buff_arr
- * @cmd_cnt: The current command number
+ * @cmd_cnt: command number
  * @stat: Pointer to the exit status of the last executed command
  *
  * Return: void
