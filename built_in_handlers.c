@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- * _cd - Changes the current working directory of the process (for cd command)
- * @args: Arguments given along with the command
- * @av: A 1d aray of the command line arguments given when the program
+ * _cd - it changes current working directory of the process for cd command
+ * @args: Arguments
+ * @av: An array of the command line arguments given when the program
  * was executed
- * @cmd_no: The current command number
+ * @cmd_no: current command number
  *
- * Return: 0 if successful, -1 otherwise
+ * Return: successful (0), -1 otherwise
  */
 int _cd(char **args, char **av, int cmd_no)
 {
@@ -50,13 +50,13 @@ int _cd(char **args, char **av, int cmd_no)
 }
 
 /**
- * _env - Prints the environment variables of the process (for env command)
- * @args: Arguments given along with the command
- * @av: 1d array of the command line arguments given when the program is
+ * _env - environment variables of the process are printed
+ * @args: Arguments 
+ * @av: array of the command line arguments given when the program is
  * executed
- * @cmd_no: The current command number
+ * @cmd_no: current command number
  *
- * Return: 0 if successful, -1 otherwise
+ * Return: successful (0) , -1 otherwise
  */
 int _env(char **args, char **av, int cmd_no)
 {
@@ -79,13 +79,13 @@ int _env(char **args, char **av, int cmd_no)
 }
 
 /**
- * _setenv - Initialize a new environment variable or modify an existing one
- * @args: Arguments given along with the command
- * @av: 1d array of the command line arguments given when the program is
+ * _setenv - modify an existing environment variable or create a new one
+ * @args: Arguments
+ * @av: array of the command line arguments given when the program is
  * executed
- * @cmd_no: The current command number
+ * @cmd_no: current command number
  *
- * Return: 0 if successful, -1 otherwise
+ * Return: successful (0), -1 otherwise
  */
 int _setenv(char **args, char **av, int cmd_no)
 {
@@ -107,36 +107,36 @@ int _setenv(char **args, char **av, int cmd_no)
 }
 
 /**
- * _unsetenv - Remove an environment variable
- * @args: Arguments given along with the command
- * @av: 1d array of the command line arguments given when the program is
+ * _unsetenv - environment variable is removec
+ * @args: Arguments 
+ * @av: array of the command line arguments given when the program is
  * executed
- * @cmd_no: The current command number
+ * @cmd_no: current command number
  *
- * Return: 0 if successful, -1 otherwise
+ * Return: successful (0), -1 otherwise
  */
 int _unsetenv(char **args, char **av, int cmd_no)
 {
-	int i = 0;
+	int m = 0;
 
 	if (args[1] == NULL)
 	{
 		print_error(av[0], args[0], "Usage: unsetenv VARIABLE\n", cmd_no);
 		return (-1);
 	}
-	while (environ[i])
+	while (environ[m])
 	{
-		char **str_arr = _strtok(environ[i], "=");
+		char **str_arr = _strtok(environ[m], "=");
 
 		if (!_strcmp(str_arr[0], args[1]))
 		{
 			free_arr(str_arr);
 			break;
 		}
-		i++;
+		m++;
 		free_arr(str_arr);
 	}
-	if (environ[i] == NULL)
+	if (environ[m] == NULL)
 	{
 		char *msg = _strcat(3, "can't unset the variable ", args[1],
 				    "\n");
@@ -145,11 +145,11 @@ int _unsetenv(char **args, char **av, int cmd_no)
 		free(msg);
 		return (-1);
 	}
-	free(environ[i]);
-	while (environ[i] != NULL)
+	free(environ[m]);
+	while (environ[m] != NULL)
 	{
-		environ[i] = environ[i + 1];
-		i++;
+		environ[m] = environ[m + 1];
+		m++;
 	}
 	return (0);
 }
